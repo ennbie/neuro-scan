@@ -1,0 +1,12 @@
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+.card {
+  max-width: 500px;
+  margin: auto;
+}
+
+.progress {
+  height: 25px;
+}

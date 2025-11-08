@@ -1,0 +1,63 @@
+# =========================
+# 🧠 Brain Tumor Detection App
+# =========================
+
+# Python bytecode and cache
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.dll
+
+# Virtual environment
+venv/
+env/
+.venv/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Logs and runtime files
+*.log
+*.tmp
+*.bak
+*.swp
+
+# Uploaded images and temp files
+uploads/
+temp/
+*.png
+*.jpg
+*.jpeg
+
+# TensorFlow / Keras model weights (optional)
+# Uncomment the next line if your model is large and you don't want to push it to GitHub.
+# model.keras
+
+# Environment and configuration
+.env
+*.env
+.env.*
+
+# Build and cache directories
+build/
+dist/
+*.egg-info/
+__cache__/
+
+# VSCode / PyCharm / IDE settings
+.vscode/
+.idea/
+
+# Render / deployment related
+*.db
+*.sqlite3
+node_modules/
+
+# Custom
+model.keras
