@@ -4,7 +4,7 @@ from fastapi.staticfiles import StaticFiles
 import os, shutil
 from app.model import predict_image
 
-app = FastAPI()
+app = FastAPI(title="Brain Tumor Detection")
 
 # Mount static files for CSS, JS, and images
 app.mount("/static", StaticFiles(directory="app/static"), name="static")
