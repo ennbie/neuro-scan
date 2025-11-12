@@ -26,6 +26,4 @@ def predict_image(img_path):
     confidence = Y_pred[0][0]
     Y_pred = np.round(Y_pred).astype(int)
     pred_class = Y_pred[0][0]
-    if pred_class==0:
-        confidence = 1 - confidence
     return CLASS_NAMES[pred_class], float(confidence)

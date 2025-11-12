@@ -1,0 +1,96 @@
+/* About page styling */
+
+.about-hero, .cta {
+  background: linear-gradient(135deg, #8496ea 0%, #8657b6 100%);
+  color: white;
+}
+
+.tech-card {
+  border-left: 4px solid #8657b6;
+  transition: all 0.3s ease;
+}
+
+.tech-card:hover {
+  box-shadow: 0 8px 16px rgba(13, 110, 253, 0.15);
+  transform: translateY(-2px);
+}
+
+.tech-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.tech-list li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #e9ecef;
+  font-size: 0.95rem;
+}
+
+.tech-list li:last-child {
+  border-bottom: none;
+}
+
+.feature-box {
+  background: #f9fafb;
+  transition: all 0.3s ease;
+}
+
+.feature-box:hover {
+  background: #f0f2f5;
+  transform: translateY(-4px);
+}
+
+.feature-icon {
+  font-size: 2.5rem;
+}
+
+/* Steps styling */
+.steps {
+  position: relative;
+  padding: 2rem 0;
+}
+
+.step-item {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 3rem;
+  position: relative;
+  padding-left: 0;
+}
+
+.step-item:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  left: 30px;
+  top: 60px;
+  width: 2px;
+  height: 80px;
+  background: #dee2e6;
+}
+
+.step-number {
+  min-width: 60px;
+  width: 60px;
+  height: 60px;
+  background: #8657b6;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(134, 87, 182, 0.3);
+}
+
+.step-content h5 {
+  margin-bottom: 0.5rem;
+  color: #212529;
+}
+
+.step-content p {
+  margin: 0;
+  font-size: 0.95rem;
+}
