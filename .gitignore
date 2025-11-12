@@ -37,7 +37,8 @@ temp/
 
 # TensorFlow / Keras model weights (optional)
 # Uncomment the next line if your model is large and you don't want to push it to GitHub.
-# model.keras
+*.keras
+*.h5
 
 # Environment and configuration
 .env
@@ -58,6 +59,3 @@ __cache__/
 *.db
 *.sqlite3
 node_modules/
-
-# Custom
-model.keras

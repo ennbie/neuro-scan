@@ -1,23 +1,35 @@
 import os
-import requests
+import gdown
+from dotenv import load_dotenv
+
+load_dotenv()
 
 def download_model():
-    MODEL_PATH = "model.keras"
-    MODEL_URL = "https://drive.google.com/uc?export=download&id=FILE_ID"
-    # ^ Replace with your actual model URL
+    DEFAULT_PATH = "app/model/model.keras"
+    MODEL_PATH = os.getenv("MODEL_PATH", DEFAULT_PATH)
+    FILE_ID = os.getenv("MODEL_FILE_ID")
+
+    if not FILE_ID:
+        print("❗ MODEL_FILE_ID not set. Set the MODEL_FILE_ID environment variable (or add it to .env) to enable automatic download.")
+        return
+
+    MODEL_URL = f"https://drive.google.com/uc?id={FILE_ID}"
+
+    # ensure parent directory exists
+    parent_dir = os.path.dirname(MODEL_PATH)
+    if parent_dir and not os.path.exists(parent_dir):
+        os.makedirs(parent_dir, exist_ok=True)
 
     if not os.path.exists(MODEL_PATH):
-        print("🔽 Model not found. Downloading model.keras ...")
-        response = requests.get(MODEL_URL, stream=True)
-        if response.status_code == 200:
-            with open(MODEL_PATH, "wb") as f:
-                for chunk in response.iter_content(chunk_size=8192):
-                    f.write(chunk)
+        print(f"🔽 Model not found at {MODEL_PATH}. Downloading...")
+        try:
+            gdown.download(MODEL_URL, MODEL_PATH, quiet=False)
             print("✅ Model downloaded successfully.")
-        else:
-            raise Exception(f"❌ Failed to download model. Status code: {response.status_code}")
+        except Exception as exc:
+            print("❌ Failed to download model:", exc)
     else:
-        print("✅ Model already exists. Skipping download.")
+        print(f"✅ Model already exists at {MODEL_PATH}. Skipping download.")
+
 
 if __name__ == "__main__":
     download_model()

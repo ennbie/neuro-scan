@@ -8,7 +8,7 @@ from app.download_model import download_model
 # Ensure model is present
 download_model()
 
-MODEL_PATH = "model.keras"
+MODEL_PATH = "app/model/model.keras"
 model = load_model(MODEL_PATH)
 
 CLASS_NAMES = ['Benign', 'Malignant']

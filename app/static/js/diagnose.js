@@ -81,7 +81,12 @@ function renderPendingCard(file) {
           <div class="bar1 progress-bar progress-bar-striped progress-bar-animated" style="width:0%">0%</div>
           <div class="bar2 progress-bar " style="width:0%">0%</div>
         </div>
-        <div class="small text-muted">Waiting for upload...</div>
+        <div class="status-info d-flex gap-2 align-items-center">
+          <div class="small text-muted">Waiting for upload...</div>
+          <div class="retry-btn-container" style="display:none;">
+            <button class="btn btn-sm btn-outline-danger retry-btn">Retry</button>
+          </div>
+        </div>
       </div>
       <div class="text-end">
         <div class="badge-status bg-secondary text-white">Pending</div>
@@ -106,6 +111,15 @@ function uploadAndPredict(file, card) {
   const progressBar2 = card.querySelector(".bar2");
   const statusText = card.querySelector(".result-meta .small");
   const badge = card.querySelector(".badge-status");
+  const retryContainer = card.querySelector(".retry-btn-container");
+  const retryBtn = card.querySelector(".retry-btn");
+
+  // hide retry button on new upload attempt
+  retryContainer.style.display = "none";
+  statusText.textContent = "Waiting for upload...";
+  badge.textContent = "Pending";
+  badge.classList.remove("bg-secondary","bg-success","bg-warning","bg-danger");
+  badge.classList.add("bg-secondary");
 
   const xhr = new XMLHttpRequest();
   const form = new FormData();
@@ -162,12 +176,16 @@ function uploadAndPredict(file, card) {
         badge.textContent = "Error";
         badge.classList.remove("bg-secondary");
         badge.classList.add("bg-danger");
+        retryContainer.style.display = "block";
+        retryBtn.onclick = () => uploadAndPredict(file, card);
       }
     } else {
       statusText.textContent = `Upload failed (${xhr.status})`;
       badge.textContent = "Error";
       badge.classList.remove("bg-secondary");
       badge.classList.add("bg-danger");
+      retryContainer.style.display = "block";
+      retryBtn.onclick = () => uploadAndPredict(file, card);
     }
   };
 
@@ -176,6 +194,8 @@ function uploadAndPredict(file, card) {
     badge.textContent = "Error";
     badge.classList.remove("bg-secondary");
     badge.classList.add("bg-danger");
+    retryContainer.style.display = "block";
+    retryBtn.onclick = () => uploadAndPredict(file, card);
   };
 
   xhr.send(form);
