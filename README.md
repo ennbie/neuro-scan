@@ -24,7 +24,7 @@ NeuroScan is an intelligent brain tumor detection system that analyzes MRI scans
 ### Backend
 - **Framework:** FastAPI
 - **Server:** Uvicorn
-- **Python:** 3.8+
+- **Python:** 3.10+
 - **Machine Learning:** TensorFlow, Keras
 - **Image Processing:** OpenCV
 - **File Handling:** python-multipart
@@ -158,6 +158,9 @@ brain-tumor-detection/
 │   ├── model.py                # Model loading and prediction logic
 │   ├── download_model.py       # Download pre-trained model
 │   ├── schemas.py              # Pydantic models for validation
+│   ├── model/
+│   ├── model.keras             # Pre-trained model file
+│   ├── model.tflite            # Compressed model file
 │   ├── static/
 │   │   ├── css/
 │   │   │   ├── index.css       # Home page styling
@@ -171,7 +174,6 @@ brain-tumor-detection/
 │       ├── about.html          # About page
 │       └── diagnose.html       # Diagnosis page
 ├── uploads/                    # Temporary upload directory
-├── model.keras                 # Pre-trained model file
 ├── requirements.txt            # Python dependencies
 ├── README.md                   # This file
 └── venv/                       # Virtual environment (if created locally)

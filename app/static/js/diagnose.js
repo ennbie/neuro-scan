@@ -207,7 +207,7 @@ function saveToHistory(record) {
   const existing = JSON.parse(sessionStorage.getItem(key) || "[]");
   existing.unshift(record); // newest first
   // optionally limit history length
-  const trimmed = existing.slice(0, 200);
+  const trimmed = existing.slice(0, 50);
   sessionStorage.setItem(key, JSON.stringify(trimmed));
   renderHistory();
 }
