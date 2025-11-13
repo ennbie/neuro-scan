@@ -32,9 +32,6 @@ Thumbs.db
 # Uploaded images and temp files
 uploads/
 temp/
-*.png
-*.jpg
-*.jpeg
 
 # TensorFlow / Keras model weights (optional)
 # Uncomment the next line if your model is large and you don't want to push it to GitHub.
