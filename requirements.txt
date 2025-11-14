@@ -1,7 +1,6 @@
 fastapi
 gdown
-opencv-python-headless
 python-dotenv
 python-multipart
-tflite-runtime
+tensorflow-cpu
 uvicorn
